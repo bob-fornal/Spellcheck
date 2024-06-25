@@ -1,0 +1,41 @@
+<div class="cah-spellcheck-wrapper" [class.is-menu-visible]="isMenuVisible" (click)="closeMenu($event)">
+  <div
+    class="cah-spellcheck-menu"
+    [style.left]="menuTopLeftPosition.x"
+    [style.top]="menuTopLeftPosition.y">
+    <div *ngFor="let word of checkData.suggestions">
+      <button
+        class="cah-spellcheck-menu-item"
+        [attr.value]="word"
+      >
+        {{ word }}
+      </button>
+    </div>
+    <div class="hr"></div>
+    <button
+      class="cah-spellcheck-menu-fixed"
+      [attr.value]="'~~ADD-TO-DICTIONARY~~'"
+    >
+      Add Cardinal Word
+    </button>
+    <div class="hr"></div>
+    <button
+      class="cah-spellcheck-menu-fixed"
+      [attr.value]="'~~CUT~~'"
+    >
+      Cut
+    </button>
+    <button
+      class="cah-spellcheck-menu-fixed"
+      [attr.value]="'~~COPY~~'"
+    >
+      Copy
+    </button>
+    <button
+      class="cah-spellcheck-menu-fixed"
+      [attr.value]="'~~PASTE~~'"
+    >
+      Paste
+    </button>
+</div>
+</div>

@@ -1,0 +1,43 @@
+.cah-spellcheck-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  &.is-menu-visible {
+    visibility: visible;
+  }
+  &:not(.is-menu-visible) {
+    visibility: hidden;
+  }
+
+  .cah-spellcheck-menu {
+    position: fixed;
+    padding: 0.5em;
+    border: 1px solid silver;
+    background-color: black;
+    border-radius: 3px;
+
+    .cah-spellcheck-menu-fixed,
+    .cah-spellcheck-menu-item {
+      color: white;
+      text-align: left;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      border: none;
+      background-color: transparent;
+      width: 100%;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+
+    .hr {
+      border-top: 1px solid silver;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+    }
+  }
+}
