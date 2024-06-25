@@ -28,7 +28,7 @@ export class InputPageComponent implements OnInit {
       this.spellcheck.initService(
         this.initSpellcheck.bind(this),
         this.handleWordSuggestion.bind(this),
-        'basic-levenshtein',
+        'complex-levenshtein',
       );
     }
   };
