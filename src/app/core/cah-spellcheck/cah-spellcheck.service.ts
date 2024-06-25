@@ -9,7 +9,7 @@ import { SpellCheckerService } from 'ngx-spellchecker';
 })
 export class CahSpellcheckService {
 
-  allWords: Array<string> = [];
+  private allWords: Array<string> = [];
   // dictionary: any;
 
   constructor(
@@ -17,7 +17,7 @@ export class CahSpellcheckService {
     // private spellCheckerService: SpellCheckerService
   ) {}
 
-  init = async (): Promise<void> => {
+  public init = async (): Promise<void> => {
     const words: string = await lastValueFrom(
       this.http.get('./assets/normalized_en-US.dic.txt', { responseType: 'text' })
     );
@@ -31,7 +31,7 @@ export class CahSpellcheckService {
     // this.dictionary = this.spellCheckerService.getDictionary(this.allWords);
   }
 
-  checkWord = (word: string): { misspelled: boolean; suggestions: Array<string> } => {
+  public checkWord = (word: string): { misspelled: boolean; suggestions: Array<string> } => {
     // return this.dictionary.checkAndSuggest(word);
     const dictionary = [...this.allWords];
     this.sortByDistances(word, dictionary);
@@ -43,7 +43,7 @@ export class CahSpellcheckService {
     return { misspelled: !suggestions.includes(word), suggestions };
   };
 
-  sortByDistances(typoPath: string, dictionary: string[]) {
+  private sortByDistances(typoPath: string, dictionary: string[]) {
     const pathsDistance = {} as { [name: string]: number };
 
     dictionary.sort((a, b) => {
@@ -58,7 +58,7 @@ export class CahSpellcheckService {
     });
   }
 
-  levenshtein(a: string, b: string): number {
+  private levenshtein(a: string, b: string): number {
     if (a.length === 0) {
       return b.length;
     }

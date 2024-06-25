@@ -6,15 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { InputPageComponent } from './pages/input-page/input-page.component';
-import { SpellCheckerModule } from 'ngx-spellchecker';
+// import { SpellCheckerModule } from 'ngx-spellchecker';
 
-import { CahSpellcheckDirective } from './core/cah-spellcheck/cah-spellcheck.directive';
 import { CahSpellcheckComponent } from './core/cah-spellcheck/cah-spellcheck.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CahSpellcheckDirective,
+
     InputPageComponent,
     CahSpellcheckComponent
   ],
@@ -24,7 +23,7 @@ import { CahSpellcheckComponent } from './core/cah-spellcheck/cah-spellcheck.com
     CommonModule,
     HttpClientModule ,
 
-    SpellCheckerModule,
+    // SpellCheckerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

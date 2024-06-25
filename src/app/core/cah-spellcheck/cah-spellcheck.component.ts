@@ -7,11 +7,11 @@ import { CahSpellcheckService } from './cah-spellcheck.service';
   styleUrls: ['./cah-spellcheck.component.scss']
 })
 export class CahSpellcheckComponent {
-  menuTopLeftPosition = { x: '0', y: '0' }
-  isMenuVisible: boolean = false;
+  public menuTopLeftPosition = { x: '0', y: '0' }
+  public isMenuVisible: boolean = false;
 
-  clickedElement: any;
-  checkData: { misspelled: boolean; suggestions: Array<string> } = {
+  private clickedElement: any;
+  public checkData: { misspelled: boolean; suggestions: Array<string> } = {
     misspelled: false, suggestions: []
   };
 
@@ -19,7 +19,7 @@ export class CahSpellcheckComponent {
     service.init();
   }
 
-  closeMenu = (event: any): void => {
+  public closeMenu = (event: any): void => {
     if (event.target.classList.contains('cah-spellcheck-menu-item') === true) {
       this.triggerSelection(event.target.value);
       return;
@@ -32,14 +32,14 @@ export class CahSpellcheckComponent {
     this.isMenuVisible = false;
   };
 
-  triggerFixedItem = (value: string): void => {
+  private triggerFixedItem = (value: string): void => {
     const word = this.selectWord(this.clickedElement);
     console.log(value, word);
 
     this.isMenuVisible = false;
   };
 
-  triggerSelection = (value: string): void => {
+  private triggerSelection = (value: string): void => {
     const left: number = this.clickedElement.selectionStart;
     const right: number = this.clickedElement.selectionEnd;
     
@@ -50,7 +50,7 @@ export class CahSpellcheckComponent {
     this.isMenuVisible = false;
   };
 
-  onRightClick(event: any, element: any) {
+  public onRightClick(event: any, element: any) {
     event.preventDefault();
 
     this.menuTopLeftPosition.x = event.clientX + 'px';
@@ -64,7 +64,7 @@ export class CahSpellcheckComponent {
     this.isMenuVisible = true;
   }
 
-  selectWord = (element: any): string => {
+  private selectWord = (element: any): string => {
     const current: number = element.selectionStart;
     const value = element.value;
 

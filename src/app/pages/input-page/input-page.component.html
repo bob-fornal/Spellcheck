@@ -3,8 +3,6 @@
     <input
       class="input"
       #input
-      cahSpellcheck
-      matInput
       [value]="inputData"
       (contextmenu)="onRightClick($event, input)"
     />
@@ -13,8 +11,6 @@
     <textarea
       class="textarea"
       #textarea
-      cahSpellcheck
-      matInput
       (contextmenu)="onRightClick($event, textarea)"
     >{{ textareaData }}</textarea>
   </div>
