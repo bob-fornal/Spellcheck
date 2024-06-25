@@ -60,4 +60,12 @@ Only the `checkWord` function is used to get the boolean `misspelled` and an arr
 * If the word is spelled correctly, it will be first on the list.
 * `closeMenu` is managed on the wrapper and checks for specific classes to determine whether to `triggerSelection` (select a word to replace the selected word with), `triggerFixedItem` to handle add to dictionary, cut, copy, and paste options, or simply closing the menu if no menu item is selected.
 
+## Techical Notes & References
 
+* [MDN Spellcheck Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)
+* [Stackblitz Spellcheck Directive](https://stackblitz.com/edit/custom-spell-check?file=src%2Fapp%2Fauto-spell-check.directive.ts)
+* [jQuery Spellcheck](https://www.javascriptspellcheck.com/)
+* [ngx-spellchecker](https://www.npmjs.com/package/ngx-spellchecker?activeTab=readme)
+* [Dictionary RAW](https://raw.githubusercontent.com/JacobSamro/ngx-spellchecker/master/dict/normalized_en-US.dic)
+* [Sessionize: Angular Material Context Menu](https://stackoverflow.com/questions/77608499/angular-material-custom-context-menu-right-click)
+* [Create Custom Context Menu in Angular](https://medium.com/weekly-webtips/create-custom-context-menu-in-angular-efeae0137e1a)
