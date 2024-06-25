@@ -15,5 +15,19 @@
     >{{ textareaData }}</textarea>
   </div>
 
+  <div class="row">
+    <input
+      class="input"
+      #input
+      [value]="inputData"
+    />
+  </div>
+  <div class="row">
+    <textarea
+      class="textarea"
+      #textarea
+    >{{ textareaData }}</textarea>
+  </div>
+
   <cah-spellcheck #spellcheck></cah-spellcheck>
 </div>

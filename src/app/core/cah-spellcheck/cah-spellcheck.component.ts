@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { Clipboard } from '@angular/cdk/clipboard';
+
 import { CahSpellcheckService } from './cah-spellcheck.service';
+
+declare var navigator: Navigator;
 
 @Component({
   selector: 'cah-spellcheck',
@@ -7,6 +11,8 @@ import { CahSpellcheckService } from './cah-spellcheck.service';
   styleUrls: ['./cah-spellcheck.component.scss']
 })
 export class CahSpellcheckComponent {
+  navigator: any = navigator;
+
   public menuTopLeftPosition = { x: '0', y: '0' }
   public isMenuVisible: boolean = false;
 
@@ -15,28 +21,62 @@ export class CahSpellcheckComponent {
     misspelled: false, suggestions: []
   };
 
-  constructor(private service: CahSpellcheckService) {
-    service.init();
+  constructor(
+    private clipboard: Clipboard,
+    private service: CahSpellcheckService
+  ) {}
+
+  public initService = (setupFn: any, addCustomWordFn: any): void => {
+    this.service.init(setupFn, addCustomWordFn);
   }
 
   public closeMenu = (event: any): void => {
-    if (event.target.classList.contains('cah-spellcheck-menu-item') === true) {
-      this.triggerSelection(event.target.value);
+    let target: any = event.target;
+    if (target.classList.contains('left') === true || target.classList.contains('right') === true) {
+      target = event.target.parentElement;
+    }
+
+    if (target.classList.contains('cah-spellcheck-menu-item') === true) {
+      this.triggerSelection(target.value);
       return;
     }
-    if (event.target.classList.contains('cah-spellcheck-menu-fixed') === true) {
-      this.triggerFixedItem(event.target.value);
+    if (target.classList.contains('cah-spellcheck-menu-fixed') === true) {
+      this.triggerFixedItem(target.value);
       return;
     }
 
     this.isMenuVisible = false;
   };
 
-  private triggerFixedItem = (value: string): void => {
+  private triggerFixedItem = async (type: string): Promise<void> => {
     const word = this.selectWord(this.clickedElement);
-    console.log(value, word);
+    
+    switch (true) {
+      case type === '~~ADD-TO-DICTIONARY~~':
+        this.service.addCustomWord(word);
+        this.isMenuVisible = false;
+        break;
+      case type === '~~CUT~~':
+        this.addToClipboard(word);
+        this.triggerSelection('');
+        break;
+      case type === '~~COPY~~':
+        this.addToClipboard(word);
+        this.isMenuVisible = false;
+        break;
+      case type === '~~PASTE~~':
+        const replacement: string = await this.getFromClipboard();
+        this.triggerSelection(replacement);
+        break;
+    }
+  };
 
-    this.isMenuVisible = false;
+  private addToClipboard = (word: string): void => {
+    this.navigator.clipboard.writeText(word);
+  };
+
+  private getFromClipboard = async(): Promise<string> => {
+    return await this.navigator.clipboard.readText();
   };
 
   private triggerSelection = (value: string): void => {
@@ -51,17 +91,20 @@ export class CahSpellcheckComponent {
   };
 
   public onRightClick(event: any, element: any) {
-    event.preventDefault();
-
-    this.menuTopLeftPosition.x = event.clientX + 'px';
-    this.menuTopLeftPosition.y = event.clientY + 'px';
-
     const word = this.selectWord(element);
-    this.clickedElement = element;
     this.checkData = this.service.checkWord(word);
-    console.log(this.checkData);
 
-    this.isMenuVisible = true;
+    if (this.checkData.misspelled === true) {
+      event.preventDefault();
+
+      this.menuTopLeftPosition.x = event.clientX + 'px';
+      this.menuTopLeftPosition.y = event.clientY + 'px';
+  
+      this.clickedElement = element;
+      console.log(this.checkData);
+  
+      this.isMenuVisible = true;  
+    }
   }
 
   private selectWord = (element: any): string => {

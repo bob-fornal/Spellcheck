@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { lastValueFrom } from 'rxjs';
-
-import { SpellCheckerService } from 'ngx-spellchecker';
 
 @Injectable({
   providedIn: 'root'
@@ -10,29 +6,14 @@ import { SpellCheckerService } from 'ngx-spellchecker';
 export class CahSpellcheckService {
 
   private allWords: Array<string> = [];
-  // dictionary: any;
+  public addCustomWord: any;
 
-  constructor(
-    private http: HttpClient,
-    // private spellCheckerService: SpellCheckerService
-  ) {}
-
-  public init = async (): Promise<void> => {
-    const words: string = await lastValueFrom(
-      this.http.get('./assets/normalized_en-US.dic.txt', { responseType: 'text' })
-    );
-    this.allWords = words.split('\n');
-
-    const custom: string = await lastValueFrom(
-      this.http.get('./assets/custom_en-US.dic.txt', { responseType: 'text' })
-    );
-    this.allWords.push(...custom.split('\n'));
-
-    // this.dictionary = this.spellCheckerService.getDictionary(this.allWords);
-  }
+  public init = async (setupFn: any, addCustomWordFn: any): Promise<void> => {
+    this.allWords = await setupFn();
+    this.addCustomWord = addCustomWordFn;
+  };
 
   public checkWord = (word: string): { misspelled: boolean; suggestions: Array<string> } => {
-    // return this.dictionary.checkAndSuggest(word);
     const dictionary = [...this.allWords];
     this.sortByDistances(word, dictionary);
     let suggestions = dictionary.slice(0, 5);
