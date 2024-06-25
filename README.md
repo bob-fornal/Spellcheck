@@ -62,10 +62,10 @@ Only the `checkWord` function is used to get the boolean `misspelled` and an arr
 
 ## Techical Notes & References
 
-* [MDN Spellcheck Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)
-* [Stackblitz Spellcheck Directive](https://stackblitz.com/edit/custom-spell-check?file=src%2Fapp%2Fauto-spell-check.directive.ts)
+* [MDN: Spellcheck Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)
+* [Stackblitz: Spellcheck Directive](https://stackblitz.com/edit/custom-spell-check?file=src%2Fapp%2Fauto-spell-check.directive.ts)
 * [jQuery Spellcheck](https://www.javascriptspellcheck.com/)
-* [ngx-spellchecker](https://www.npmjs.com/package/ngx-spellchecker?activeTab=readme)
-* [Dictionary RAW](https://raw.githubusercontent.com/JacobSamro/ngx-spellchecker/master/dict/normalized_en-US.dic)
-* [Sessionize: Angular Material Context Menu](https://stackoverflow.com/questions/77608499/angular-material-custom-context-menu-right-click)
-* [Create Custom Context Menu in Angular](https://medium.com/weekly-webtips/create-custom-context-menu-in-angular-efeae0137e1a)
+* [NPM: ngx-spellchecker](https://www.npmjs.com/package/ngx-spellchecker?activeTab=readme)
+* [GitHub: Dictionary RAW](https://raw.githubusercontent.com/JacobSamro/ngx-spellchecker/master/dict/normalized_en-US.dic)
+* [Stack Overflow: Angular Material Context Menu](https://stackoverflow.com/questions/77608499/angular-material-custom-context-menu-right-click)
+* [Medium: Create Custom Context Menu in Angular](https://medium.com/weekly-webtips/create-custom-context-menu-in-angular-efeae0137e1a)

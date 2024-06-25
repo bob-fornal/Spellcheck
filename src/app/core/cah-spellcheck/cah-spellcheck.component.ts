@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Clipboard } from '@angular/cdk/clipboard';
 
 import { CahSpellcheckService } from './cah-spellcheck.service';
+import { CahAlgorithmTypes } from './cah-spellcheck.interface';
 
 declare var navigator: Navigator;
 
@@ -22,12 +22,11 @@ export class CahSpellcheckComponent {
   };
 
   constructor(
-    private clipboard: Clipboard,
     private service: CahSpellcheckService
   ) {}
 
-  public initService = (setupFn: any, addCustomWordFn: any): void => {
-    this.service.init(setupFn, addCustomWordFn);
+  public initService = (setupFn: any, addCustomWordFn: any, algorithm: CahAlgorithmTypes): void => {
+    this.service.init(setupFn, addCustomWordFn, algorithm);
   }
 
   public closeMenu = (event: any): void => {

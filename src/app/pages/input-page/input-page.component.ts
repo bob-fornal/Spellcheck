@@ -18,13 +18,20 @@ export class InputPageComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
+    this.initialize();
+  }
+
+  initialize = () => {
+    if (this.spellcheck === undefined) {
+      setTimeout(() => this.initialize(), 100);
+    } else {
       this.spellcheck.initService(
         this.initSpellcheck.bind(this),
         this.handleWordSuggestion.bind(this),
+        'basic-levenshtein',
       );
-    }, 1000);
-  }
+    }
+  };
 
   onRightClick = (event: any, element: any): void => {
     this.spellcheck.onRightClick(event, element);
@@ -40,7 +47,6 @@ export class InputPageComponent implements OnInit {
       this.http.get('./assets/custom_en-US.dic.txt', { responseType: 'text' })
     );
     allWords.push(...custom.split('\n'));
-    console.log(allWords.length);
 
     return allWords;
   };
