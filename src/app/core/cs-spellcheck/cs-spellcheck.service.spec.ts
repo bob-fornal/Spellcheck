@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CahSpellcheckService } from './cah-spellcheck.service';
+import { CsSpellcheckService } from './cs-spellcheck.service';
 
-describe('CahSpellcheckService', () => {
-  let service: CahSpellcheckService;
+describe('CsSpellcheckService', () => {
+  let service: CsSpellcheckService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(CahSpellcheckService);
+    service = TestBed.inject(CsSpellcheckService);
   });
 
   it('should be created', () => {

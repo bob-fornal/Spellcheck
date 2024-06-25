@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 
-import { CahSpellcheckService } from './cah-spellcheck.service';
-import { CahAlgorithmTypes } from './cah-spellcheck.interface';
+import { CsSpellcheckService } from './cs-spellcheck.service';
+import { CsAlgorithmTypes } from './cs-spellcheck.interface';
 
 declare var navigator: Navigator;
 
 @Component({
-  selector: 'cah-spellcheck',
-  templateUrl: './cah-spellcheck.component.html',
-  styleUrls: ['./cah-spellcheck.component.scss']
+  selector: 'cs-spellcheck',
+  templateUrl: './cs-spellcheck.component.html',
+  styleUrls: ['./cs-spellcheck.component.scss']
 })
-export class CahSpellcheckComponent {
+export class CsSpellcheckComponent {
   navigator: any = navigator;
 
   public menuTopLeftPosition = { x: '0', y: '0' }
@@ -22,10 +22,10 @@ export class CahSpellcheckComponent {
   };
 
   constructor(
-    private service: CahSpellcheckService
+    private service: CsSpellcheckService
   ) {}
 
-  public initService = (setupFn: any, addCustomWordFn: any, algorithm: CahAlgorithmTypes): void => {
+  public initService = (setupFn: any, addCustomWordFn: any, algorithm: CsAlgorithmTypes): void => {
     this.service.init(setupFn, addCustomWordFn, algorithm);
   }
 

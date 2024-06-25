@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CahSpellcheckComponent } from './cah-spellcheck.component';
+import { CsSpellcheckComponent } from './cs-spellcheck.component';
 
-describe('CahSpellcheckComponent', () => {
-  let component: CahSpellcheckComponent;
-  let fixture: ComponentFixture<CahSpellcheckComponent>;
+describe('CsSpellcheckComponent', () => {
+  let component: CsSpellcheckComponent;
+  let fixture: ComponentFixture<CsSpellcheckComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CahSpellcheckComponent ]
+      declarations: [ CsSpellcheckComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CahSpellcheckComponent);
+    fixture = TestBed.createComponent(CsSpellcheckComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 
-import { CahSpellcheckComponent } from 'src/app/core/cah-spellcheck/cah-spellcheck.component';
+import { CsSpellcheckComponent } from 'src/app/core/cs-spellcheck/cs-spellcheck.component';
 
 @Component({
   selector: 'input-page',
@@ -10,7 +10,7 @@ import { CahSpellcheckComponent } from 'src/app/core/cah-spellcheck/cah-spellche
   styleUrls: ['./input-page.component.scss'],
 })
 export class InputPageComponent implements OnInit {
-  @ViewChild(CahSpellcheckComponent) spellcheck!: CahSpellcheckComponent;
+  @ViewChild(CsSpellcheckComponent) spellcheck!: CsSpellcheckComponent;
 
   inputData: string = 'mispelld word hre';
   textareaData: string = 'mispelld word hre\nmizpelld word hee';

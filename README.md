@@ -4,13 +4,13 @@ This is an attempt to build a functional spellcheck system that can be used with
 
 This is a functional set of code rather than optimized.
 
-## Using the CAH-SPELLCHECK functionality
+## Using the `cs-spellcheck` functionality
 
 The important parts here are ...
 
 1. The `#[name]` used to allow the referece for the `onRightClick` event.
 2. The `(contextmenu)=""` which allows Angular to trap the event and input being used.
-3. The <cah-spellcheck>` component added, with the `#spellcheck` reference.
+3. The `<cs-spellcheck>` component added, with the `#spellcheck` reference.
 
 ```html
 <div class="wrapper">
@@ -30,14 +30,14 @@ The important parts here are ...
     >{{ textareaData }}</textarea>
   </div>
 
-  <cah-spellcheck #spellcheck></cah-spellcheck>
+  <cs-spellcheck #spellcheck></cs-spellcheck>
 </div>
 ```
 
 Inside the component TypeScript code, `#spellcheck` is referenced to allow passing the `event` and `element` to the `onRightClick` function in the Spell Check component.
 
 ```typescript
-  @ViewChild(CahSpellcheckComponent) spellcheck!: CahSpellcheckComponent;
+  @ViewChild(CsSpellcheckComponent) spellcheck!: CsSpellcheckComponent;
 
   // ...
 
@@ -46,13 +46,22 @@ Inside the component TypeScript code, `#spellcheck` is referenced to allow passi
   };
 ```
 
-## CAH-SPELLCHECK Service
+### Levenshtein
+
+The **Levenshtein** distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
+
+There are two options here:
+
+* simple-levenshtein
+* complex-levenshtein
+
+## `cs-spellcheck` Service
 
 The service uses an `init` function, and in this demo it's initialized on the input page. In reality, this should be done as close to the load time of the application as possible.
 
 Only the `checkWord` function is used to get the boolean `misspelled` and an array of strings `suggestions`.
 
-## CAH-SPELLCHECK Component
+## `cs-spellcheck` Component
 
 `onRightClick` is the way that the external (parent) component tells this component to get the word the cursor is on, select the word, and open the menu with options.
 

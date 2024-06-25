@@ -1,4 +1,4 @@
-export type CahAlgorithmTypes = 'basic-levenshtein' | 'complex-levenshtein';
+export type CsAlgorithmTypes = 'basic-levenshtein' | 'complex-levenshtein';
 
 export interface SpellcheckResponse {
   misspelled: boolean;

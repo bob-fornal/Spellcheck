@@ -10,21 +10,21 @@ import { AppComponent } from './app.component';
 import { InputPageComponent } from './pages/input-page/input-page.component';
 // import { SpellCheckerModule } from 'ngx-spellchecker';
 
-import { CahSpellcheckComponent } from './core/cah-spellcheck/cah-spellcheck.component';
+import { CsSpellcheckComponent } from './core/cs-spellcheck/cs-spellcheck.component';
 
 @NgModule({
   declarations: [
     AppComponent,
 
     InputPageComponent,
-    CahSpellcheckComponent
+    CsSpellcheckComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     ClipboardModule,
     CommonModule,
-    HttpClientModule ,
+    HttpClientModule,
 
     // SpellCheckerModule,
   ],

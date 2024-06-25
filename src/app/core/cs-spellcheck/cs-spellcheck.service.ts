@@ -6,19 +6,19 @@ import * as levenshtein from 'damerau-levenshtein';
 const collator = new Intl.Collator(undefined, { 'sensitivity': 'accent' });
 const suggestradius = 1000;
 
-import { CahAlgorithmTypes, SpellcheckResponse } from './cah-spellcheck.interface';
+import { CsAlgorithmTypes, SpellcheckResponse } from './cs-spellcheck.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CahSpellcheckService {
-  private algorithm: CahAlgorithmTypes = 'basic-levenshtein';
+export class CsSpellcheckService {
+  private algorithm: CsAlgorithmTypes = 'basic-levenshtein';
   private allWords: Array<string> = [];
   private regexs: Array<any> = [];
 
   public addCustomWord: any;
 
-  public init = async (setupFn: any, addCustomWordFn: any, algorithm: CahAlgorithmTypes): Promise<void> => {
+  public init = async (setupFn: any, addCustomWordFn: any, algorithm: CsAlgorithmTypes): Promise<void> => {
     this.allWords = await setupFn();
     this.addCustomWord = addCustomWordFn;
     this.algorithm = algorithm;

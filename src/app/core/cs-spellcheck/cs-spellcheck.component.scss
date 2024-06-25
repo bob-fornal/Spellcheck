@@ -1,4 +1,4 @@
-.cah-spellcheck-wrapper {
+.cs-spellcheck-wrapper {
   position: fixed;
   top: 0;
   left: 0;
@@ -12,15 +12,15 @@
     visibility: hidden;
   }
 
-  .cah-spellcheck-menu {
+  .cs-spellcheck-menu {
     position: fixed;
     padding: 0.5em;
     border: 1px solid silver;
     background-color: black;
     border-radius: 3px;
 
-    .cah-spellcheck-menu-fixed,
-    .cah-spellcheck-menu-item {
+    .cs-spellcheck-menu-fixed,
+    .cs-spellcheck-menu-item {
       color: white;
       text-align: left;
       padding: 0.5em 1em;
