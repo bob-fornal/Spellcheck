@@ -71,6 +71,12 @@ Only the `checkWord` function is used to get the boolean `misspelled` and an arr
 
 ## Techical Notes & References
 
+### Fixing Highlight Issue
+
+* [Highlight Text Inside a Textarea](https://codersblock.com/blog/highlight-text-inside-a-textarea/)
+
+### General Articles
+
 * [MDN: Spellcheck Attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/spellcheck)
 * [Stackblitz: Spellcheck Directive](https://stackblitz.com/edit/custom-spell-check?file=src%2Fapp%2Fauto-spell-check.directive.ts)
 * [jQuery Spellcheck](https://www.javascriptspellcheck.com/)
